@@ -50,6 +50,7 @@ The **Webhook Server** provides a robust and flexible way to manage and respond 
 │   └───setup.py        # Setup script for initializing the application
 │
 │
+├───test                # Test functions here
 ├───Dockerfile          # Instructions for building the Docker image
 ├───.env                # Environment variables for the **application**
 └───app.py              # Main application entry point

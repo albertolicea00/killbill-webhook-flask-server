@@ -50,3 +50,20 @@ def POST():
     else:
         return jsonify(response), 503
 
+
+@bp.route("/config", methods=["DELETE"], strict_slashes=False)
+def DELETE():
+    """
+    Endpoint to clean Killbill callback notifications.
+    ---
+    description: This endpoint delete notifications subscription to Killbill.
+    responses:
+      200:
+        description: Successful operation
+    """
+    killbill_api = app.services.killbill.api
+    killbill_header = app.services.killbill.header
+
+    # Delete existing notifications subscription
+    response = killbill_api.tenant.delete_push_notification(header=killbill_header)
+    return jsonify(), 200

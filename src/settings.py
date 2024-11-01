@@ -21,3 +21,14 @@ def configure_app(app):
     app.config.KB_TIMEOUT = 30
 
     # add more .env secrets here ...
+
+
+def configure_services(app):
+    from src.services.killbill import Config as init_killbill
+
+    class Services:
+        killbill = init_killbill(app)
+        # add more services here ...
+
+    if not hasattr(app, "services"):
+        app.services = Services()

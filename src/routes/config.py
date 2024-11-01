@@ -51,6 +51,33 @@ def POST():
         return jsonify(response), 503
 
 
+@bp.route("/config", methods=["GET"], strict_slashes=False)
+def GET():
+    """
+    Endpoint to get Killbill callback notifications.
+    ---
+    description: This endpoint get notifications subscription to Killbill.
+    responses:
+      200:
+        description: KillBill retrieve push notification response
+        schema:
+          type: object
+          properties:
+            auditLogs:
+              type: string
+            key:
+              type: string
+            values:
+              type: array
+    """
+    killbill_api = app.services.killbill.api
+    killbill_header = app.services.killbill.header
+
+    # Check notifications subscription
+    response = killbill_api.tenant.retrieve_push_notifications(header=killbill_header)
+    return jsonify(response), 200
+
+
 @bp.route("/config", methods=["DELETE"], strict_slashes=False)
 def DELETE():
     """

@@ -98,10 +98,6 @@ curl -X POST {HOST}/config/ \
 
 #### `GET` notifications subscription to Killbill.
 
-```http
-  GET /config/
-```
-
 ```bash
 # fn() src.routes.config.GET
 curl -X GET {HOST}/config/ \

@@ -32,7 +32,7 @@ def POST():
               values:
                 type: array
     """
-    default_CALLBACK = f"{app.config.FLASK_PROTOCOL}://{app.config.FLASK_HOST}:{app.config.FLASK_PORT}/listeners/kb_callback"
+    default_CALLBACK = f"{app.config.FLASK_PROTOCOL}://{app.config.FLASK_HOST}:{app.config.FLASK_PORT}kb/listener/"
     CALLBACK_URL = request.json.get("cb", default_CALLBACK)
 
     killbill_api = app.services.killbill.api

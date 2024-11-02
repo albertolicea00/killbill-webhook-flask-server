@@ -76,7 +76,7 @@ The **Webhook Server** provides a robust and flexible way to manage and respond 
 
 ```bash
 # fn() src.routes.listener.POST
-curl -X POST {HOST}/listener/ \
+curl -X POST {HOST}/kb/listener/ \
      -H 'Content-Type: application/json' \
      -d '{
         eventType : "{EVENT_TYPE}"
@@ -90,7 +90,7 @@ curl -X POST {HOST}/listener/ \
 
 ```bash
 # fn() src.routes.config.POST
-curl -X POST {HOST}/config/ \
+curl -X POST {HOST}/kb/config/ \
      -H 'Content-Type: application/json' \
      -d '{
         "cb": "The callback URL for Killbill notifications. If not provided, the default URL will be used."
@@ -101,7 +101,7 @@ curl -X POST {HOST}/config/ \
 
 ```bash
 # fn() src.routes.config.GET
-curl -X GET {HOST}/config/ \
+curl -X GET {HOST}/kb/config/ \
      -H 'Content-Type: application/json'
 ```
 
@@ -109,7 +109,7 @@ curl -X GET {HOST}/config/ \
 
 ```bash
 # fn() src.routes.config.DELETE
-curl -X DELETE {HOST}/config/ \
+curl -X DELETE {HOST}/kb/config/ \
      -H 'Content-Type: application/json' \
 ```
 

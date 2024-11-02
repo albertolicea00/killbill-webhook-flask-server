@@ -22,8 +22,10 @@ The **Webhook Server** provides a robust and flexible way to manage and respond 
 - ✅ Logger events
 - ✅ Serializers: objects to dictionaries
 - ✅ Event handling functions
+- ❌ Event handlers mapping function ([example](https://github.com/albertolicea00/killbill-webhook-node-server/blob/0367998d5441db1a909571d00fcc95c8f1eb7690/src/events/mapping.js))
 - ❌ Database support
-- ❌ Killbill models support (🚧upcoming...)
+- ➖ Killbill models support (included in killbill service)
+- ❓ Production mode (deploy)
 
 # 🌳 File Structure
 
@@ -37,7 +39,7 @@ The **Webhook Server** provides a robust and flexible way to manage and respond 
 │   ├───helpers/        # Utility functions and helper methods
 │   │   └───serializers.py
 │   │
-│   ├───router/         # Route definitions and handlers
+│   ├───routes/         # Route definitions and handlers
 │   │   └───config.py
 │   │   └───listener.py
 │   │
@@ -50,9 +52,10 @@ The **Webhook Server** provides a robust and flexible way to manage and respond 
 │   └───setup.py        # Setup script for initializing the application
 │
 │
-├───test                # Test functions here
+├───test/               # Test functions here
 ├───Dockerfile          # Instructions for building the Docker image
 ├───.env                # Environment variables for the **application**
+├───app.log             # logs for the **application**
 └───app.py              # Main application entry point
 ```
 
@@ -273,7 +276,7 @@ This is a handlers about each [**event type** from killbill's](https://docs.kill
 
 **NOTES** :
 
-- for more info please read the docstring inside each handler funtion.
+- for more info please read the docstring inside each handler function.
 - to know more about event handler mapping read the comments bellow the `src.routes.listener.POST` route function.
 
 # 🚀 Get started
@@ -337,7 +340,7 @@ docker stop killbill-webhook-server
 
 ```bash
 # Remove container
-docker rmi flask-apirest-container
+docker rmi killbill-webhook-container
 ```
 
 # 📦 Tech Stack
